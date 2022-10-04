@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CreateImg from "../../assets/create-demo.svg";
 import Check from "../../assets/check.svg";
+import { useLocation } from "react-router-dom";
 const Create = () => {
   const navigate = useNavigate();
   const [eventDetails, setEventDetails] = useState({
@@ -14,8 +15,13 @@ const Create = () => {
   });
 
   const handleCreateEvent = () => {
-    navigate("/event", { state: eventDetails });
+    navigate("/event", {  state:eventDetails });
   };
+  const { state } = useLocation();
+  console.log(state?.eventDetails);
+  useEffect(()=>{
+    setEventDetails(state?.eventDetails)
+  },[state])
   return (
     <>
       <div className="create-page-container-wrap">
@@ -33,6 +39,7 @@ const Create = () => {
                         eventName: e.target.value,
                       });
                     }}
+                    value={eventDetails?.eventName}
                     type="text"
                     placeholder="Event title"
                   />
@@ -45,6 +52,7 @@ const Create = () => {
                   <input
                     type="text"
                     placeholder="Event Host Name"
+                    value={eventDetails?.eventHost}
                     onChange={(e) => {
                       setEventDetails({
                         ...eventDetails,
@@ -60,6 +68,7 @@ const Create = () => {
                   <div className="create-page-input-container-input">
                     <input
                       type="date"
+                      value={eventDetails?.startDate}
                       onChange={(e) => {
                         setEventDetails({
                           ...eventDetails,
@@ -75,6 +84,7 @@ const Create = () => {
                   <div className="create-page-input-container-input">
                     <input
                       type="date"
+                      value={ eventDetails?.endDate}
                       onChange={(e) => {
                         setEventDetails({
                           ...eventDetails,
@@ -101,6 +111,7 @@ const Create = () => {
                       });
                     }}
                     type="text"
+                    value={eventDetails?.location}
                     placeholder=" Location"
                   />
                 </div>

@@ -3,15 +3,24 @@ import LandingImg from "../../assets/cake-img.svg";
 import DateImg from "../../assets/date.svg";
 import LocImg from "../../assets/location.svg";
 import ArrowImg from "../../assets/arrow.svg";
+import EditIcon from "../../assets/edit.svg";
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import moment from "moment/moment";
 const Event = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
+  const handleCreateEvent = () => {
+    navigate("/event/create", {  state:{eventDetails:state} });
+  };
   return (
     <div className="event-wrap">
       <div className="event-container">
         <div className="event-container-text">
           <h1>{state?.eventName ? state?.eventName : "Birthday Bash"}</h1>
+          <div onClick={handleCreateEvent} className="edit-icon">
+                <img src={EditIcon} alt="" />
+            </div>
           <p>
             Hosted by{" "}
             <span>{state?.eventHost ? state?.eventName : "Elysia"}</span>{" "}
@@ -52,7 +61,7 @@ const Event = () => {
           </div>
         </div>
         <div className="event-container-img">
-          <img src={state?.image ? state.image : LandingImg} alt="" />
+          <img src={state?.image ? state?.image : LandingImg} alt="" />
         </div>
       </div>
     </div>
