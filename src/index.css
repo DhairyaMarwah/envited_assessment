@@ -75,12 +75,88 @@ text-fill-color: transparent;
 .landing-page-img-phone{
   display: none;
 }
+.event-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 75%;
+  margin: 0 auto;
+  align-items: flex-start;
+  height: 100vh;
+  margin-top: 12rem;
+   
+}
+.event-container-text >h1{
+  font-weight: 700;
+font-size: 3rem;
+line-height: 3.43rem;
+display: flex;
+align-items: center; 
+color: #240D57;
+}
+.event-container-text >p{
+  font-weight: 400;
+font-size:1.1rem;margin-top: 1rem;
+
+color: #828282;
+}
+.event-container-text p span{
+  font-weight: 600;
+}
+.event-container-card{
+  display: grid;
+  width: 90%;
+  grid-template-columns: 0.2fr 1fr 0.2fr;
+  align-items: center;
+  margin-top: 4rem;
+}
+.event-container-card-img {
+  background-color: #fff;box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;padding: 1rem;display: flex;justify-content: center;align-items: center;
+}
+/* .event-container-text{height: 50%;} */
+ .event-container-card-details{
+  margin-left: 1.2rem;
+ }
+ .event-container-card-details h1{
+  font-weight: 700;
+font-size: 1.1rem;
+line-height: 1.3rem; 
+color: #240D57;
+ }
+ .event-container-card-details p{
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.3rem;
+color: #4F4F4F;
+
+ }
+
 @media (max-width:1200px) {
-  .landing-page-container{
+  .landing-page-container,.event-container{
     width: 90%;
   }
 }
 @media (max-width:1000px) {
+  .event-container{
+    display: flex;
+    flex-direction: column-reverse;
+    height: unset;margin-top: 3rem;margin: 0 auto;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+  .event-container-text{
+    width: 80%;
+  }
+  .event-container-img{
+    width: 80%;
+  }
+  .event-container-img img{
+    width: 100%;margin: 0 auto;
+    margin-bottom: 1.5rem;
+  }
+  .event-container-card{
+    width: 400px;margin-top: 55px;
+  }
   .landing-page-container{
   display: flex;
   flex-direction: column-reverse;
@@ -97,10 +173,32 @@ text-fill-color: transparent;
   }
 }
 @media (max-width:500px) {
+  .event-container,.event-container-img{
+    width: 100%;
+  }
+  .event-container-text >h1{
+    font-size: 28px;
+line-height: 32px;
+
+  }
+  .event-container-text >p{
+    font-size: 14px;
+line-height: 16px;margin-top: 5px;
+  }
+  .event-container-card-details h1{
+    font-size: 16px;
+line-height: 18px;
+  }
+  .event-container-card-details p{
+    font-size: 14px;
+line-height: 16px;
+  }
   .landing-page-content h1 {
     font-size: 2rem;
     line-height: 41px;
   }
+  .event-container-card{width: 100%;margin-top: 32px;}
+  .event-container-text{width: 90%;}
   .landing-page-content p{
     font-size: 1rem;margin-bottom: 2rem;
 line-height: 18px;
